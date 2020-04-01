@@ -8,21 +8,24 @@ import parts from './parts/preview';
 Vue.component('parts', parts);
 
 export default {
-  el: 'Components',
   name: 'Components',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      th: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','th1','th2','th3',],
-      td1: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','td1','td2','td3',],
-      td2: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','td1','td2','td3',],
-      td3: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','td1','td2','td3',],
+      number_list: 10,
     }
   },
   methods: {
+    remove: function() {
+      this.number_list--;
+    }
   },
   mounted: function() {
-    console.log('起動')
+    console.log(this.$refs.id.length)
+    for (let i=0; i<this.$refs.id.length; i++){
+        let id_msg = this.$refs.id[i].getMessage();
+        console.log(id_msg);
+    }
   },
 }
 

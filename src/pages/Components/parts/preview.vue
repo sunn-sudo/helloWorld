@@ -1,6 +1,6 @@
 <template>
-<div v-show='msg.length < 10'>
-  <H1>{{ msg }}</H1>
+<div>
+  <H1> {{msg}}</H1>
   <table>
     <thead>
       <!--テンプレート置き換え-->
@@ -36,7 +36,7 @@
 export default {
   props:{
     msg: {
-      type: String,
+      type: Number,
       default: () => {
           return '闇の炎に焼かれて消えろ!!';
       },
@@ -47,9 +47,13 @@ export default {
       },
     },
   },
+  methods: {
+    getMessage: function(){
+      return 'これが子のコンポネット呼び出しの技_' + this.msg;
+    }
+  },
   data() {
     return{
-      msg: '',
       th: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','th1','th2','th3',],
       td1: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','td1','td2','td3',],
       td2: ['th1','th2','th3','th1','th2','th3','th1','th2','th3','td1','td2','td3',],

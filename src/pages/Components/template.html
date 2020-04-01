@@ -1,8 +1,5 @@
 <div id="Components">
   <H1>{{ msg }}</H1>
-  <parts></parts>
-  <parts msg="これが本物！！"></parts>
-  <parts msg="YAHOOOOOOOOOOO"></parts>
-  <parts msg="これがコンポーネットの力!!!です!!!!!!"></parts>
-  <parts></parts>
+  <parts v-for='(items) in number_list' :ref="'id'" v-bind:msg="items"></parts>
+  <button @click="remove()">コンポネット君の数を減らすボタンだよ</button>
 </div>
