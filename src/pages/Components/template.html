@@ -1,5 +1,6 @@
 <div id="Components">
   <H1>{{ msg }}</H1>
-  <parts v-for='(items) in number_list' :ref="'id'" v-bind:msg="items"></parts>
+  <parts v-for='(items) in number_list' :ref="'id'" v-show="items == open_tag_no" v-bind:msg="items"></parts>
   <button @click="remove()">コンポネット君の数を減らすボタンだよ</button>
+  <button @click="open()">コンポネット君ナンバー5を呼び出すよ</button>
 </div>

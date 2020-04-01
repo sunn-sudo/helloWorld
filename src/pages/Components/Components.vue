@@ -13,14 +13,19 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       number_list: 10,
+      open_tag_no: null,
     }
   },
   methods: {
     remove: function() {
       this.number_list--;
+    },
+    open: function(){
+      this.open_tag_no = 5;
     }
   },
   mounted: function() {
+    console.log(this.$refs.id)
     console.log(this.$refs.id.length)
     for (let i=0; i<this.$refs.id.length; i++){
         let id_msg = this.$refs.id[i].getMessage();
