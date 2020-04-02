@@ -27,10 +27,14 @@ export default {
   mounted: function() {
     console.log(this.$refs.id)
     console.log(this.$refs.id.length)
+    let id_msg = '';
+    let th_summary = [];
     for (let i=0; i<this.$refs.id.length; i++){
-        let id_msg = this.$refs.id[i].getMessage();
-        console.log(id_msg);
+        id_msg = this.$refs.id[i].getMessage();
+        th_summary = th_summary.concat(this.$refs.id[i].th);
     }
+    this.$refs.id[4].th =  th_summary;
+    console.log(th_summary);
   },
 }
 
