@@ -1,7 +1,8 @@
 <template>
 <div>
   <H1> {{msg}}</H1>
-  <table>
+  <div class="sticky_table_wrapper">
+  <table id='test' class='sticky_table'>
     <thead>
       <!--テンプレート置き換え-->
       <tr>
@@ -29,6 +30,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 </template>
 
@@ -62,3 +64,36 @@ export default {
   }
 }
 </script>
+
+<style type="text/css">
+#test{
+  border: solid 1px #808080;
+  padding: 0.5em;
+}
+
+.sticky_table thead th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /* tbody内のセルより手前に表示する */
+  z-index: 1;
+}
+
+.sticky_table th:first-child {
+  /* 横スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+}
+.sticky_table thead th:first-child {
+  /* ヘッダー行内の他のセルより手前に表示する */
+  z-index: 2;
+}
+
+.sticky_table_wrapper {
+  overflow: scroll;
+  width: auto;
+}
+
+</style>
