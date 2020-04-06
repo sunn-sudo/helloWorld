@@ -1,6 +1,7 @@
 <template>
 <div>
   <H1> {{msg}}</H1>
+  <button　@click="sendData()">ここを押すと・・・・・・</button>
   <div class="sticky_table_wrapper">
   <table id='test' class='sticky_table'>
     <thead>
@@ -52,6 +53,11 @@ export default {
   methods: {
     getMessage: function(){
       return 'これが子のコンポネット呼び出しの技_' + this.msg;
+    },
+    sendData:function(){
+      console.log("親要素にデータを渡すよ")
+      console.log(this.$emit)
+      this.$emit('attack',50);
     }
   },
   data() {

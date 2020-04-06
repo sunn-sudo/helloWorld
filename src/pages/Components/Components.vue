@@ -22,6 +22,11 @@ export default {
     },
     open: function(){
       this.open_tag_no = 5;
+    },
+    setNumberList: function(num){
+      console.log(num)
+      this.number_list = num;
+      console.log('実行されたよ')
     }
   },
   mounted: function() {
