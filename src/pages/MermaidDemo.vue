@@ -4,8 +4,10 @@
     :nodes="data"
     :config="config"
     type="graph LR"
+    class="demo"
   ></vue-mermaid>
-  <button @click='add()'> 増える配列ボタン </button>
+  <button @click='add()'> 変えるボタン </button>
+  <button @click='add2()'> 増やすボタン </button>
   </div>
 </template>
 
@@ -24,8 +26,10 @@ export default {
           id: "1",
           text: 'INNER JOIN 結合テーブル1',
           next: ["3"],
+          class: "test1",
           group: "one",
-          style: ""
+          style: "",
+          theme: 'neutral'
         },
         {
           id: "2",
@@ -34,13 +38,12 @@ export default {
           group: "one"
         },
         { id: "3", link: "---", text: "結合結果1", next: ["5"], group: "two" },
-        { id: "4", text: "E", next: ["5"], group: "two" },
         { id: "5", link: "---", text: "結合結果2", group: "three" },
         { id: "6", text: "G", group: "three" },
       ],
       count: 0,
       config: {
-        theme: 'neutral'
+        // theme: 'neutral'
       }
 
     };
@@ -50,24 +53,29 @@ export default {
       alert(nodeId);
     },
     add(){
-      this.data[0].style = "fill:#f9f,stroke:#333,stroke-width:4px";
       this.data[0].text = '文字が変わったよー';
       console.log(document.getElementById('subGraph0').getElementsByTagName('rect'));
       if(this.count % 2 == 0) {
         setTimeout(function(){
-          document.getElementById('subGraph0').getElementsByTagName('rect')[0].style.fill = "#FF0000";
-          document.getElementById('subGraph1').getElementsByTagName('rect')[0].style.fill = "#FF0000";
-          document.getElementById('subGraph2').getElementsByTagName('rect')[0].style.fill = "#FF0000";
+          let len = $("g.cluster > rect").length
+          $("g.cluster > rect").eq(len -3).css("fill","#9f9")
+          //$("g.cluster > rect").eq(1).css("fill","#9f9")
         });
       }
       if(this.count % 2 == 1) {
-        document.getElementById('subGraph0').getElementsByTagName('rect')[0].style.fill = "";
-        document.getElementById('subGraph1').getElementsByTagName('rect')[0].style.fill = "";
-        document.getElementById('subGraph2').getElementsByTagName('rect')[0].style.fill = "";
+        $("g.cluster > rect").css("fill","");
       }
       this.count++;
+    },
+    add2(){
+      this.data.push({ id: "7", text: "G", group: "1wwww" });
     }
   }
+  //    g#subGraph0.cluster rect{
+//        fill:#FF0000;
+//        stroke:#FFFF00;
+//        stroke-width:4px;
+//    }
 };
 </script>
 

@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Components',
-      component: Components
+      name: 'MermaidDemo',
+      component: MermaidDemo
     }
   ]
 })
